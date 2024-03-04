@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="alien1" class="com.example.Spring1.Alien" autowire="byType"> 
+    
+    <!-- type used when both the parameters are of different types  -->
+    <!--  <constructor-arg type="com.example.Spring1.Laptop" ref="lap1"></constructor-arg>
+    <constructor-arg type="int" value="24"></constructor-arg> -->
+    
+    <!-- when both are same, use index attribute -->
+    
+       <!-- <constructor-arg index="1" ref="lap1"></constructor-arg>
+       <constructor-arg index="0" value="24"></constructor-arg> -->
+     
+        <!-- we can use name attribute also, but need to follow sequence -->
+        <!-- <constructor-arg name="age" value="24"></constructor-arg>
+        <constructor-arg name="lap" ref="lap1"></constructor-arg> -->
+        
+        
+     <property name="age" value="24"></property>
+     <!-- use this code snippet to understand autowire byName 
+      autowire will work, if you uncomment this or will not mention explicitly the ref attribute (imp to understand)
+     -->
+      <!--  <property name="com" ref="com1"></property> -->
+     
+    </bean>
+      <bean id="com1" class="com.example.Spring1.Laptop" primary="true"> </bean> 
+      <!-- if we uncomment this, we will get error highlighting us the use of primary qualifier -->
+       <bean id="com2" class="com.example.Spring1.Desktop"> </bean>
+      
+</beans>
+
+
